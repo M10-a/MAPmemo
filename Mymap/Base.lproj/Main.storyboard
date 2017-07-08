@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mymap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eMz-YL-6w8">
+                                <rect key="frame" x="-4" y="20" width="383" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            </textField>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EI8-xr-0DR">
+                                <rect key="frame" x="-4" y="50" width="383" height="617"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYZ-i0-7Rc">
+                                <rect key="frame" x="313" y="629" width="46" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Hz2-V7-Wfa"/>
+                                    <constraint firstAttribute="height" constant="30" id="Pjb-5v-7z6"/>
+                                </constraints>
+                                <state key="normal" title="切替"/>
+                                <connections>
+                                    <action selector="changeMapButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PnN-jn-WDM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="EI8-xr-0DR" secondAttribute="trailing" constant="-20" id="0fg-fP-NzU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MYZ-i0-7Rc" secondAttribute="bottom" constant="8" id="DA7-bD-MfU"/>
+                            <constraint firstItem="eMz-YL-6w8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="I3i-sO-Rub"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eMz-YL-6w8" secondAttribute="trailing" constant="-20" id="TBG-aH-vK9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MYZ-i0-7Rc" secondAttribute="trailing" id="WMg-Q2-CpG"/>
+                            <constraint firstItem="EI8-xr-0DR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="av2-Hk-AvX"/>
+                            <constraint firstItem="EI8-xr-0DR" firstAttribute="top" secondItem="eMz-YL-6w8" secondAttribute="bottom" id="b3i-EC-60u"/>
+                            <constraint firstItem="eMz-YL-6w8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gZP-nx-ZB7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EI8-xr-0DR" secondAttribute="bottom" id="i6D-xg-lIj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dispMap" destination="EI8-xr-0DR" id="pAn-AM-9WE"/>
+                        <outlet property="inputText" destination="eMz-YL-6w8" id="p8V-nX-GtE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
