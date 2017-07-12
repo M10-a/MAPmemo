@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		352991E41F0E711900FDE955 /* memoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 352991E31F0E711900FDE955 /* memoView.xib */; };
-		352991E81F0E72EC00FDE955 /* memoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352991E71F0E72EC00FDE955 /* memoView.swift */; };
+		350D13B01F15D1D60017ED73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 350D13AF1F15D1D60017ED73 /* GoogleService-Info.plist */; };
 		35DDFA111ED84359006241B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDFA101ED84359006241B7 /* AppDelegate.swift */; };
 		35DDFA131ED84359006241B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDFA121ED84359006241B7 /* ViewController.swift */; };
 		35DDFA161ED84359006241B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35DDFA141ED84359006241B7 /* Main.storyboard */; };
 		35DDFA181ED84359006241B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35DDFA171ED84359006241B7 /* Assets.xcassets */; };
 		35DDFA1B1ED84359006241B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35DDFA191ED84359006241B7 /* LaunchScreen.storyboard */; };
+		F35EAC7A6DEA0D03BDF56FD3 /* Pods_MAPmemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21302C1AAA846E494C5D25E6 /* Pods_MAPmemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		352991E31F0E711900FDE955 /* memoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = memoView.xib; sourceTree = "<group>"; };
-		352991E71F0E72EC00FDE955 /* memoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memoView.swift; sourceTree = "<group>"; };
+		21302C1AAA846E494C5D25E6 /* Pods_MAPmemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAPmemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		350D13AF1F15D1D60017ED73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		352A792C1EDA9BB800788DB7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		352A792D1EDA9BB800788DB7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		35DDFA0D1ED84359006241B7 /* MAPmemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAPmemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +28,8 @@
 		35DDFA171ED84359006241B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35DDFA1A1ED84359006241B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35DDFA1C1ED84359006241B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		436E58B1CDA33419E6795406 /* Pods-MAPmemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAPmemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MAPmemo/Pods-MAPmemo.debug.xcconfig"; sourceTree = "<group>"; };
+		52BD4054FB7D0FCB3CF49D0B /* Pods-MAPmemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAPmemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MAPmemo/Pods-MAPmemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35EAC7A6DEA0D03BDF56FD3 /* Pods_MAPmemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,10 +47,10 @@
 		35DDFA041ED84359006241B7 = {
 			isa = PBXGroup;
 			children = (
-				352991E31F0E711900FDE955 /* memoView.xib */,
-				352991E71F0E72EC00FDE955 /* memoView.swift */,
 				35DDFA0F1ED84359006241B7 /* Mymap */,
 				35DDFA0E1ED84359006241B7 /* Products */,
+				94EF3CD3AC09BC5D44963B73 /* Pods */,
+				534D91346B48EA290787D228 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,8 +71,26 @@
 				35DDFA171ED84359006241B7 /* Assets.xcassets */,
 				35DDFA191ED84359006241B7 /* LaunchScreen.storyboard */,
 				35DDFA1C1ED84359006241B7 /* Info.plist */,
+				350D13AF1F15D1D60017ED73 /* GoogleService-Info.plist */,
 			);
 			path = Mymap;
+			sourceTree = "<group>";
+		};
+		534D91346B48EA290787D228 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21302C1AAA846E494C5D25E6 /* Pods_MAPmemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94EF3CD3AC09BC5D44963B73 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				436E58B1CDA33419E6795406 /* Pods-MAPmemo.debug.xcconfig */,
+				52BD4054FB7D0FCB3CF49D0B /* Pods-MAPmemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -79,9 +100,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35DDFA1F1ED84359006241B7 /* Build configuration list for PBXNativeTarget "MAPmemo" */;
 			buildPhases = (
+				94A2570175598C0222AD97E7 /* [CP] Check Pods Manifest.lock */,
 				35DDFA091ED84359006241B7 /* Sources */,
 				35DDFA0A1ED84359006241B7 /* Frameworks */,
 				35DDFA0B1ED84359006241B7 /* Resources */,
+				FDA75AA5D09DBCE745240B19 /* [CP] Embed Pods Frameworks */,
+				6266BB807991070E001E431E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,8 +156,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				352991E41F0E711900FDE955 /* memoView.xib in Resources */,
 				35DDFA1B1ED84359006241B7 /* LaunchScreen.storyboard in Resources */,
+				350D13B01F15D1D60017ED73 /* GoogleService-Info.plist in Resources */,
 				35DDFA181ED84359006241B7 /* Assets.xcassets in Resources */,
 				35DDFA161ED84359006241B7 /* Main.storyboard in Resources */,
 			);
@@ -141,12 +165,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6266BB807991070E001E431E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MAPmemo/Pods-MAPmemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94A2570175598C0222AD97E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FDA75AA5D09DBCE745240B19 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MAPmemo/Pods-MAPmemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		35DDFA091ED84359006241B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				352991E81F0E72EC00FDE955 /* memoView.swift in Sources */,
 				35DDFA131ED84359006241B7 /* ViewController.swift in Sources */,
 				35DDFA111ED84359006241B7 /* AppDelegate.swift in Sources */,
 			);
@@ -275,6 +346,7 @@
 		};
 		35DDFA201ED84359006241B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 436E58B1CDA33419E6795406 /* Pods-MAPmemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 68PB2ZGM6N;
@@ -288,6 +360,7 @@
 		};
 		35DDFA211ED84359006241B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52BD4054FB7D0FCB3CF49D0B /* Pods-MAPmemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 68PB2ZGM6N;
