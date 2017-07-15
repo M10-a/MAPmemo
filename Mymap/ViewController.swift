@@ -13,9 +13,6 @@ import Firebase
 
 class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate , CLLocationManagerDelegate {
   
-  // Todoモデルのインスタンス生成
-//  var TodoLists = [Todo]()
-  
   // Firebaseのインスタンス生成
   var ref: DatabaseReference!
   private var databaseHandle: DatabaseHandle!
@@ -23,6 +20,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   var locationManager: CLLocationManager!
   var location: CLLocationCoordinate2D!
   var pin = MKPointAnnotation()
+  
   
 
   override func viewDidLoad() {
@@ -58,22 +56,6 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   // dispMap
   @IBOutlet weak var dispMap: MKMapView!
-  
-  //var memo: CLLocationCoordinate2D!
-  
-//  func setupLocationManager() {
-//    locationManager = CLLocationManager()
-//    guard let locationManager = locationManager else { return }
-//    
-//    locationManager.requestWhenInUseAuthorization()
-//    
-//    let status = CLLocationManager.authorizationStatus()
-//    if status == .authorizedWhenInUse {
-//      locationManager.distanceFilter = 10
-//      locationManager.startUpdatingLocation()
-//    }
-//  }
-  
   
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -152,15 +134,6 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
       // 入力されたテキストを保持
       if let userInput = dialog.textFields?.first?.text {
         
-        // ピンを削除したい
-//        let button = UIButton()
-//        button.frame = CGRectMake(0,0,40,40)
-//        button.setTitle("削除", for: UIButton)
-//        button.backgroundColor = UIColoredColor()
-//        button.setTitleColor(UIColor.white, for:.Normal)
-//        pinView.rightCalloutAccessoryView = button
-       
-        
         // MKPointAnnotationインスタンスを取得し、ピンを生成(10)
         let pin = MKPointAnnotation()
         
@@ -219,6 +192,31 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     }
   }
   
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    let identifier = "pin"
+    
+    if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+      annotationView.annotation = annotation
+      return annotationView
+    } else {
+      let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:identifier)
+      annotationView.isEnabled = true
+      annotationView.canShowCallout = true
+      
+
+      let btn = UIButton()
+      let delete_image = UIImage(named: "delete_button")
+      
+      btn.setImage(delete_image, for: .normal)
+
+      annotationView.rightCalloutAccessoryView = btn
+      return annotationView
+    }
+  }
+  
+  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    mapView.removeAnnotation(view.annotation!)
+  }
 }
 
 
