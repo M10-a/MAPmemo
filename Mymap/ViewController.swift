@@ -214,10 +214,10 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
       annotationView.canShowCallout = true
       
       
-      let btn = UIButton(type: .infoLight)
-//      let delete_image = UIImage(named: "delete_button")
-//      
-//      btn.setImage(delete_image, for: .normal)
+      let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+      let delete_image = UIImage(named: "delete_button")
+      
+      btn.setImage(delete_image, for: .normal)
       
       annotationView.rightCalloutAccessoryView = btn
       return annotationView
@@ -225,7 +225,27 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   }
   
   func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-    mapView.removeAnnotation(view.annotation!)
+    
+    self.ref.child("users/01/memo").observeSingleEvent(of: .value, with: {(snapshot) in
+      
+      for mapSnapShot in snapshot.children{
+        
+        let getData = maplist(snapshot: mapSnapShot as! DataSnapshot)
+
+        let location = view.annotation?.coordinate
+        
+        print(location ?? "no")
+        print(getData)
+        
+        if (getData.latitude == location?.latitude) &&
+          (getData.longitude == location?.longitude) {
+          getData.ref?.removeValue()
+        }
+        
+      }
+      mapView.removeAnnotation(view.annotation!)
+    })
+
   }
   
   func startObservingDatabase() {
