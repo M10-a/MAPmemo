@@ -13,6 +13,9 @@ import Firebase
 
 class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate , CLLocationManagerDelegate {
   
+  // Todoモデルのインスタンス生成
+  var MapList = [maplist]()
+  
   // Firebaseのインスタンス生成
   var ref: DatabaseReference!
   private var databaseHandle: DatabaseHandle!
@@ -22,13 +25,13 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   var pin = MKPointAnnotation()
   
   
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // delegateの通知先を指定
     dispMap.delegate = self
-
+    
     // 現在地にフォーカスを合わせる
     dispMap.setCenter(dispMap.userLocation.coordinate, animated: true)
     // ユーザの位置に追従させる
@@ -43,7 +46,14 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     
     // MapView Delegate設定
     dispMap.delegate = self
+    
+    // Firebaseのインスタンス生成
+    ref = Database.database().reference()
+    
+    startObservingDatabase()
+    
   }
+  
   
   
   override func didReceiveMemoryWarning() {
@@ -104,7 +114,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     // デフォルト動作を行うのでtrueを返す(4)
     return true
   }
- 
+  
   
   // UITapGestureRecognizer(長押し)
   func mapTapped(_ sender: UITapGestureRecognizer){
@@ -120,16 +130,11 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     
     // OKボタン生成
     let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-    
-    // 入力されたテキストを保持
-    let userInput = dialog.textFields?.first?.text!
-    
-    //　コンソールに出力
-    print(userInput ?? "no date")
       
-
-    // detabaseにデータ更新
-//    self.ref.child("users").child("01").child("memo").childByAutoId().child("title").setValue(userInput)
+      
+      
+      
+      
       
       // 入力されたテキストを保持
       if let userInput = dialog.textFields?.first?.text {
@@ -145,9 +150,14 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
         
         // ピンを地図に置く(13)
         self.dispMap.addAnnotation(pin)
+        
+        // detabaseにデータ更新
+        let setData: [String: Any] = ["title":userInput, "latitude":location.latitude, "longitude":location.longitude]
+        self.ref.child("users").child("01").child("memo").childByAutoId().child("data").setValue(setData)
+        
       }
     }
-  
+    
     
     // ダイヤログをリセット
     dialog.addTextField(configurationHandler: nil)
@@ -158,7 +168,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     // ダイヤログを表示
     present(dialog, animated: true, completion: nil)
   }
-
+  
   
   func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
     mapView.selectAnnotation(self.pin, animated: true)
@@ -167,15 +177,15 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   
   // 切り替えボタン
-   @IBAction func changeMapButtonAction(_ sender: Any) {
+  @IBAction func changeMapButtonAction(_ sender: Any) {
     // mapTypeプロパティ値をトグル
     // standard(標準)
     if dispMap.mapType == .standard {
       // satellite(航空写真)
       dispMap.mapType = .satellite
-    
+      
     } else if dispMap.mapType == .satellite {
-     // hybrid(航空写真+標準)
+      // hybrid(航空写真+標準)
       dispMap.mapType = .hybrid
       
     } else if dispMap.mapType == .hybrid {
@@ -203,12 +213,12 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
       annotationView.isEnabled = true
       annotationView.canShowCallout = true
       
-
+      
       let btn = UIButton()
       let delete_image = UIImage(named: "delete_button")
       
       btn.setImage(delete_image, for: .normal)
-
+      
       annotationView.rightCalloutAccessoryView = btn
       return annotationView
     }
@@ -217,6 +227,34 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
     mapView.removeAnnotation(view.annotation!)
   }
+  
+  func startObservingDatabase() {
+    //\(self.uid)文字列に変数をいれる時
+    self.ref.child("users/01/memo").observeSingleEvent(of: .value, with: {(snapshot) in
+      
+      for mapSnapShot in snapshot.children{
+        
+        let getData = maplist(snapshot: mapSnapShot as! DataSnapshot)
+        
+        
+        // MKPointAnnotationインスタンスを取得し、ピンを生成(10)
+        let pin = MKPointAnnotation()
+        
+        // ピンの置く場所に緯度経度を設定(11)
+        let location = CLLocationCoordinate2D(latitude:  getData.latitude!, longitude:  getData.longitude!)
+        pin.coordinate = location
+        
+        // ピンのタイトルを設定(12)
+        pin.title =  getData.title
+        
+        // ピンを地図に置く(13)
+        self.dispMap.addAnnotation(pin)
+        
+      }
+    })
+  }
 }
+//let setData: [String: Any] = ["title":userInput, "latitude":location.latitude, "longitude":location.longitude]
+//self.ref.child("users").child("01").child("memo").childByAutoId().child("data").setValue(setData)
 
 
