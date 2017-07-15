@@ -1,0 +1,6 @@
+framework module Pods_MAPmemo {
+  umbrella header "Pods-MAPmemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
