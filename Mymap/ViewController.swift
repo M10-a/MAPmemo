@@ -24,13 +24,14 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   var location: CLLocationCoordinate2D!
   var pin = MKPointAnnotation()
   
-
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // delegateの通知先を指定
     dispMap.delegate = self
-
+    
     // 現在地にフォーカスを合わせる
     dispMap.setCenter(dispMap.userLocation.coordinate, animated: true)
     // ユーザの位置に追従させる
@@ -50,7 +51,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     ref = Database.database().reference()
     
     startObservingDatabase()
-   
+    
   }
   
   
@@ -65,22 +66,6 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   // dispMap
   @IBOutlet weak var dispMap: MKMapView!
-  
-  //var memo: CLLocationCoordinate2D!
-  
-//  func setupLocationManager() {
-//    locationManager = CLLocationManager()
-//    guard let locationManager = locationManager else { return }
-//    
-//    locationManager.requestWhenInUseAuthorization()
-//    
-//    let status = CLLocationManager.authorizationStatus()
-//    if status == .authorizedWhenInUse {
-//      locationManager.distanceFilter = 10
-//      locationManager.startUpdatingLocation()
-//    }
-//  }
-  
   
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -129,7 +114,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     // デフォルト動作を行うのでtrueを返す(4)
     return true
   }
- 
+  
   
   // UITapGestureRecognizer(長押し)
   func mapTapped(_ sender: UITapGestureRecognizer){
@@ -145,23 +130,14 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     
     // OKボタン生成
     let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-    
-
       
-
-    
+      
+      
+      
+      
       
       // 入力されたテキストを保持
       if let userInput = dialog.textFields?.first?.text {
-        
-        // ピンを削除したい
-//        let button = UIButton()
-//        button.frame = CGRectMake(0,0,40,40)
-//        button.setTitle("削除", for: UIButton)
-//        button.backgroundColor = UIColoredColor()
-//        button.setTitleColor(UIColor.white, for:.Normal)
-//        pinView.rightCalloutAccessoryView = button
-       
         
         // MKPointAnnotationインスタンスを取得し、ピンを生成(10)
         let pin = MKPointAnnotation()
@@ -181,7 +157,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
         
       }
     }
-  
+    
     
     // ダイヤログをリセット
     dialog.addTextField(configurationHandler: nil)
@@ -192,7 +168,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     // ダイヤログを表示
     present(dialog, animated: true, completion: nil)
   }
-
+  
   
   func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
     mapView.selectAnnotation(self.pin, animated: true)
@@ -201,15 +177,15 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   
   // 切り替えボタン
-   @IBAction func changeMapButtonAction(_ sender: Any) {
+  @IBAction func changeMapButtonAction(_ sender: Any) {
     // mapTypeプロパティ値をトグル
     // standard(標準)
     if dispMap.mapType == .standard {
       // satellite(航空写真)
       dispMap.mapType = .satellite
-    
+      
     } else if dispMap.mapType == .satellite {
-     // hybrid(航空写真+標準)
+      // hybrid(航空写真+標準)
       dispMap.mapType = .hybrid
       
     } else if dispMap.mapType == .hybrid {
@@ -224,6 +200,32 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
       // 標準に戻る
       dispMap.mapType = .standard
     }
+  }
+  
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    let identifier = "pin"
+    
+    if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+      annotationView.annotation = annotation
+      return annotationView
+    } else {
+      let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:identifier)
+      annotationView.isEnabled = true
+      annotationView.canShowCallout = true
+      
+      
+      let btn = UIButton(type: .infoLight)
+//      let delete_image = UIImage(named: "delete_button")
+//      
+//      btn.setImage(delete_image, for: .normal)
+      
+      annotationView.rightCalloutAccessoryView = btn
+      return annotationView
+    }
+  }
+  
+  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    mapView.removeAnnotation(view.annotation!)
   }
   
   func startObservingDatabase() {
@@ -249,10 +251,8 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
         self.dispMap.addAnnotation(pin)
         
       }
-         })
+    })
   }
-
-  
 }
 //let setData: [String: Any] = ["title":userInput, "latitude":location.latitude, "longitude":location.longitude]
 //self.ref.child("users").child("01").child("memo").childByAutoId().child("data").setValue(setData)
