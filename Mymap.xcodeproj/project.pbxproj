@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		350D13B01F15D1D60017ED73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 350D13AF1F15D1D60017ED73 /* GoogleService-Info.plist */; };
 		350D13B41F19EA810017ED73 /* maplist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350D13B31F19EA810017ED73 /* maplist.swift */; };
+		350D13B61F1A04E00017ED73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 350D13B51F1A04E00017ED73 /* GoogleService-Info.plist */; };
 		35DDFA111ED84359006241B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDFA101ED84359006241B7 /* AppDelegate.swift */; };
 		35DDFA131ED84359006241B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDFA121ED84359006241B7 /* ViewController.swift */; };
 		35DDFA161ED84359006241B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35DDFA141ED84359006241B7 /* Main.storyboard */; };
@@ -19,8 +19,8 @@
 
 /* Begin PBXFileReference section */
 		21302C1AAA846E494C5D25E6 /* Pods_MAPmemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAPmemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		350D13AF1F15D1D60017ED73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		350D13B31F19EA810017ED73 /* maplist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = maplist.swift; sourceTree = "<group>"; };
+		350D13B51F1A04E00017ED73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		352A792C1EDA9BB800788DB7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		352A792D1EDA9BB800788DB7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		35DDFA0D1ED84359006241B7 /* MAPmemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAPmemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +73,7 @@
 				35DDFA171ED84359006241B7 /* Assets.xcassets */,
 				35DDFA191ED84359006241B7 /* LaunchScreen.storyboard */,
 				35DDFA1C1ED84359006241B7 /* Info.plist */,
-				350D13AF1F15D1D60017ED73 /* GoogleService-Info.plist */,
+				350D13B51F1A04E00017ED73 /* GoogleService-Info.plist */,
 				350D13B31F19EA810017ED73 /* maplist.swift */,
 			);
 			path = Mymap;
@@ -160,7 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35DDFA1B1ED84359006241B7 /* LaunchScreen.storyboard in Resources */,
-				350D13B01F15D1D60017ED73 /* GoogleService-Info.plist in Resources */,
+				350D13B61F1A04E00017ED73 /* GoogleService-Info.plist in Resources */,
 				35DDFA181ED84359006241B7 /* Assets.xcassets in Resources */,
 				35DDFA161ED84359006241B7 /* Main.storyboard in Resources */,
 			);
@@ -356,9 +356,10 @@
 				DEVELOPMENT_TEAM = 68PB2ZGM6N;
 				INFOPLIST_FILE = Mymap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mio20170522.Mymap;
+				PRODUCT_BUNDLE_IDENTIFIER = mio20170715.Mymap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -370,9 +371,10 @@
 				DEVELOPMENT_TEAM = 68PB2ZGM6N;
 				INFOPLIST_FILE = Mymap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mio20170522.Mymap;
+				PRODUCT_BUNDLE_IDENTIFIER = mio20170715.Mymap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

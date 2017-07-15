@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>65119533867-um9rsjiapgunkln4u0cdom8a270psq36.apps.googleusercontent.com</string>
+	<string>65119533867-7q5ifmvsee2rdra850nmopjl4lcbls5t.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.65119533867-um9rsjiapgunkln4u0cdom8a270psq36</string>
+	<string>com.googleusercontent.apps.65119533867-7q5ifmvsee2rdra850nmopjl4lcbls5t</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAGcHtzSvGc3A6x4b3RU0U37FMVsuxIoMM</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>mio20170522.Mymap</string>
+	<string>mio20170715.Mymap</string>
 	<key>PROJECT_ID</key>
 	<string>mapmemo-883c2</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:65119533867:ios:99920ea56aa5eaf7</string>
+	<string>1:65119533867:ios:5b848a9c9f362745</string>
 	<key>DATABASE_URL</key>
 	<string>https://mapmemo-883c2.firebaseio.com</string>
 </dict>
