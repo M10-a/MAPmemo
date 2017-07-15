@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		350D13B01F15D1D60017ED73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 350D13AF1F15D1D60017ED73 /* GoogleService-Info.plist */; };
+		350D13B41F19EA810017ED73 /* maplist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350D13B31F19EA810017ED73 /* maplist.swift */; };
 		35DDFA111ED84359006241B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDFA101ED84359006241B7 /* AppDelegate.swift */; };
 		35DDFA131ED84359006241B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDFA121ED84359006241B7 /* ViewController.swift */; };
 		35DDFA161ED84359006241B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35DDFA141ED84359006241B7 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		21302C1AAA846E494C5D25E6 /* Pods_MAPmemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAPmemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		350D13AF1F15D1D60017ED73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		350D13B31F19EA810017ED73 /* maplist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = maplist.swift; sourceTree = "<group>"; };
 		352A792C1EDA9BB800788DB7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		352A792D1EDA9BB800788DB7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		35DDFA0D1ED84359006241B7 /* MAPmemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAPmemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 				35DDFA191ED84359006241B7 /* LaunchScreen.storyboard */,
 				35DDFA1C1ED84359006241B7 /* Info.plist */,
 				350D13AF1F15D1D60017ED73 /* GoogleService-Info.plist */,
+				350D13B31F19EA810017ED73 /* maplist.swift */,
 			);
 			path = Mymap;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35DDFA131ED84359006241B7 /* ViewController.swift in Sources */,
+				350D13B41F19EA810017ED73 /* maplist.swift in Sources */,
 				35DDFA111ED84359006241B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
