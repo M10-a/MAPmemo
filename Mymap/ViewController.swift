@@ -28,6 +28,9 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // delegateの通知先を指定
+    dispMap.delegate = self
+
     // 現在地にフォーカスを合わせる
     dispMap.setCenter(dispMap.userLocation.coordinate, animated: true)
     // ユーザの位置に追従させる
@@ -118,10 +121,10 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     })
     // デフォルト動作を行うのでtrueを返す(4)
     return true
-    
   }
+ 
   
-  
+  // UITapGestureRecognizer(長押し)
   func mapTapped(_ sender: UITapGestureRecognizer){
     
     // 画面上のタッチした座標を取得
@@ -135,10 +138,29 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     
     // OKボタン生成
     let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+    
+    // 入力されたテキストを保持
+    let userInput = dialog.textFields?.first?.text!
+    
+    //　コンソールに出力
+    print(userInput ?? "no date")
+      
+
+    // detabaseにデータ更新
+//    self.ref.child("users").child("01").child("memo").childByAutoId().child("title").setValue(userInput)
       
       // 入力されたテキストを保持
       if let userInput = dialog.textFields?.first?.text {
+        
+        // ピンを削除したい
+//        let button = UIButton()
+//        button.frame = CGRectMake(0,0,40,40)
+//        button.setTitle("削除", for: UIButton)
+//        button.backgroundColor = UIColoredColor()
+//        button.setTitleColor(UIColor.white, for:.Normal)
+//        pinView.rightCalloutAccessoryView = button
        
+        
         // MKPointAnnotationインスタンスを取得し、ピンを生成(10)
         let pin = MKPointAnnotation()
         
@@ -151,8 +173,8 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
         // ピンを地図に置く(13)
         self.dispMap.addAnnotation(pin)
       }
-      
     }
+  
     
     // ダイヤログをリセット
     dialog.addTextField(configurationHandler: nil)
@@ -167,12 +189,12 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
     mapView.selectAnnotation(self.pin, animated: true)
+    
   }
   
   
   // 切り替えボタン
    @IBAction func changeMapButtonAction(_ sender: Any) {
-    
     // mapTypeプロパティ値をトグル
     // standard(標準)
     if dispMap.mapType == .standard {
