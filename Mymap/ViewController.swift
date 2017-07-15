@@ -214,10 +214,10 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
       annotationView.canShowCallout = true
       
       
-      let btn = UIButton()
-      let delete_image = UIImage(named: "delete_button")
-      
-      btn.setImage(delete_image, for: .normal)
+      let btn = UIButton(type: .infoLight)
+//      let delete_image = UIImage(named: "delete_button")
+//      
+//      btn.setImage(delete_image, for: .normal)
       
       annotationView.rightCalloutAccessoryView = btn
       return annotationView
