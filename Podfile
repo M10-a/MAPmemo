@@ -7,4 +7,5 @@ target 'MAPmemo' do
 
   # Pods for MAPmemo
    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
 end

@@ -287,6 +287,11 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   }
   
   @IBAction func didTapSignOut(_ sender: Any) {
+    do {
+      try Auth.auth().signOut(); performSegue(withIdentifier: "goAuth", sender: nil)
+    } catch let error {
+      assertionFailure("Error signing out: \(error)")
+    }
   }
   
   
