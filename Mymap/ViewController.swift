@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate , CLLocationManagerDelegate {
   
@@ -24,10 +25,21 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   var location: CLLocationCoordinate2D!
   var pin = MKPointAnnotation()
   
+    / FirebaseのID
+  var uid = ""
+  
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // ユーザ情報を取得
+    let user = Auth.auth().currentUser
+    if user == nil {
+      performSegue(withIdentifier: "goAuth", sender: nil)
+    } else {
+      uid = (user?.uid)!
+    }
     
     // delegateの通知先を指定
     dispMap.delegate = self
@@ -273,6 +285,11 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
       }
     })
   }
+  
+  @IBAction func didTapSignOut(_ sender: Any) {
+  }
+  
+  
 }
 //let setData: [String: Any] = ["title":userInput, "latitude":location.latitude, "longitude":location.longitude]
 //self.ref.child("users").child("01").child("memo").childByAutoId().child("data").setValue(setData)

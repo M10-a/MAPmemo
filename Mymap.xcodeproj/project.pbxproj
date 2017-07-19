@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		350D13B41F19EA810017ED73 /* maplist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350D13B31F19EA810017ED73 /* maplist.swift */; };
 		350D13B61F1A04E00017ED73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 350D13B51F1A04E00017ED73 /* GoogleService-Info.plist */; };
+		3522F25B1F1FACD100FCF004 /* AuthViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3522F25A1F1FACD100FCF004 /* AuthViewControler.swift */; };
 		35DDFA111ED84359006241B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDFA101ED84359006241B7 /* AppDelegate.swift */; };
 		35DDFA131ED84359006241B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DDFA121ED84359006241B7 /* ViewController.swift */; };
 		35DDFA161ED84359006241B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35DDFA141ED84359006241B7 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		21302C1AAA846E494C5D25E6 /* Pods_MAPmemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAPmemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		350D13B31F19EA810017ED73 /* maplist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = maplist.swift; sourceTree = "<group>"; };
 		350D13B51F1A04E00017ED73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3522F25A1F1FACD100FCF004 /* AuthViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewControler.swift; sourceTree = "<group>"; };
 		352A792C1EDA9BB800788DB7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		352A792D1EDA9BB800788DB7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		35DDFA0D1ED84359006241B7 /* MAPmemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAPmemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				35DDFA101ED84359006241B7 /* AppDelegate.swift */,
 				35DDFA121ED84359006241B7 /* ViewController.swift */,
 				35DDFA141ED84359006241B7 /* Main.storyboard */,
+				3522F25A1F1FACD100FCF004 /* AuthViewControler.swift */,
 				35DDFA171ED84359006241B7 /* Assets.xcassets */,
 				35DDFA191ED84359006241B7 /* LaunchScreen.storyboard */,
 				35DDFA1C1ED84359006241B7 /* Info.plist */,
@@ -131,7 +134,7 @@
 				TargetAttributes = {
 					35DDFA0C1ED84359006241B7 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 68PB2ZGM6N;
+						DevelopmentTeam = SN6N96858V;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -224,6 +227,7 @@
 				35DDFA131ED84359006241B7 /* ViewController.swift in Sources */,
 				350D13B41F19EA810017ED73 /* maplist.swift in Sources */,
 				35DDFA111ED84359006241B7 /* AppDelegate.swift in Sources */,
+				3522F25B1F1FACD100FCF004 /* AuthViewControler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,8 +357,9 @@
 			baseConfigurationReference = 436E58B1CDA33419E6795406 /* Pods-MAPmemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 68PB2ZGM6N;
+				DEVELOPMENT_TEAM = SN6N96858V;
 				INFOPLIST_FILE = Mymap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mio20170715.Mymap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -368,8 +373,9 @@
 			baseConfigurationReference = 52BD4054FB7D0FCB3CF49D0B /* Pods-MAPmemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 68PB2ZGM6N;
+				DEVELOPMENT_TEAM = SN6N96858V;
 				INFOPLIST_FILE = Mymap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mio20170715.Mymap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
