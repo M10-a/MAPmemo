@@ -6,6 +6,6 @@ target 'MAPmemo' do
   use_frameworks!
 
   # Pods for MAPmemo
-   pod 'Firebase/Database'
-    pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'Firebase/Auth'
 end

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
-import FirebaseAuth
+//import FirebaseAuth
 
 class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate , CLLocationManagerDelegate {
   
@@ -25,7 +25,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   var location: CLLocationCoordinate2D!
   var pin = MKPointAnnotation()
   
-    / FirebaseのID
+    // FirebaseのID
   var uid = ""
   
   
@@ -33,13 +33,13 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // ユーザ情報を取得
-    let user = Auth.auth().currentUser
-    if user == nil {
-      performSegue(withIdentifier: "goAuth", sender: nil)
-    } else {
-      uid = (user?.uid)!
-    }
+//    // ユーザ情報を取得
+//    let user = Auth.auth().currentUser
+//    if user == nil {
+//      performSegue(withIdentifier: "goAuth", sender: nil)
+//    } else {
+//      uid = (user?.uid)!
+//    }
     
     // delegateの通知先を指定
     dispMap.delegate = self
@@ -287,11 +287,6 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   }
   
   @IBAction func didTapSignOut(_ sender: Any) {
-    do {
-      try Auth.auth().signOut(); performSegue(withIdentifier: "goAuth", sender: nil)
-    } catch let error {
-      assertionFailure("Error signing out: \(error)")
-    }
   }
   
   
