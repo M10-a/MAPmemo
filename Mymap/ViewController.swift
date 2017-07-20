@@ -33,7 +33,6 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   override func viewDidAppear(_ animated: Bool) {
     
     
-    
     // 現在地にフォーカスを合わせる
     dispMap.setCenter(dispMap.userLocation.coordinate, animated: true)
     // ユーザの位置に追従させる
@@ -219,6 +218,12 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   }
   
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+  
+    // これでわける
+    if annotation is MKUserLocation {
+      return nil
+    }
+    
     let identifier = "pin"
     
     if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
