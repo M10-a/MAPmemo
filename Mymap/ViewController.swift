@@ -29,18 +29,16 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   var uid = ""
   
   
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    // ユーザ情報を取得
+  override func viewDidAppear(_ animated: Bool) {
+   
+    // ユーザ情報を取得
     let user = Auth.auth().currentUser
     if user == nil {
       performSegue(withIdentifier: "goAuth", sender: nil)
     } else {
       uid = (user?.uid)!
     }
-    
+  
     // delegateの通知先を指定
     dispMap.delegate = self
     
@@ -62,6 +60,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     // Firebaseのインスタンス生成
     ref = Database.database().reference()
     
+   //  databaseの監視を開始  
     startObservingDatabase()
     
   }
