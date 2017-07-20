@@ -25,11 +25,14 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   var location: CLLocationCoordinate2D!
   var pin = MKPointAnnotation()
   
+  
   // FirebaseのID
   var uid = ""
   
   
   override func viewDidAppear(_ animated: Bool) {
+    
+    
     
     // 現在地にフォーカスを合わせる
     dispMap.setCenter(dispMap.userLocation.coordinate, animated: true)
@@ -239,7 +242,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
     
-    self.ref.child("users/self.uid/memo").observeSingleEvent(of: .value, with: {(snapshot) in
+    self.ref.child("users/\(self.uid)/memo").observeSingleEvent(of: .value, with: {(snapshot) in
       
       for mapSnapShot in snapshot.children{
         
@@ -263,7 +266,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   func startObservingDatabase() {
     //\(self.uid)文字列に変数をいれる時
-    self.ref.child("users/self.uid/memo").observeSingleEvent(of: .value, with: {(snapshot) in
+    self.ref.child("users/\(self.uid)/memo").observeSingleEvent(of: .value, with: {(snapshot) in
       
       for mapSnapShot in snapshot.children{
         
@@ -296,9 +299,5 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     }
   }
   
-  
-}
-//let setData: [String: Any] = ["title":userInput, "latitude":location.latitude, "longitude":location.longitude]
-//self.ref.child("users").child("01").child("memo").childByAutoId().child("data").setValue(setData)
-
-
+ 
+  }

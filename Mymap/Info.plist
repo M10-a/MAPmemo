@@ -22,10 +22,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>Location When In Use Usage Description</key>
-	<string>位置情報を取得します</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>位置情報</string>
+	<string>mapmemoは使用中のみ位置情報のアクセスを許可します</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
