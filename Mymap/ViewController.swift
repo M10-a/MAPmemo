@@ -30,6 +30,12 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   
   override func viewDidAppear(_ animated: Bool) {
+    
+    // 現在地にフォーカスを合わせる
+    dispMap.setCenter(dispMap.userLocation.coordinate, animated: true)
+    // ユーザの位置に追従させる
+    dispMap.userTrackingMode = MKUserTrackingMode.follow
+    
    
     // ユーザ情報を取得
     let user = Auth.auth().currentUser
@@ -42,11 +48,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     // delegateの通知先を指定
     dispMap.delegate = self
     
-    // 現在地にフォーカスを合わせる
-    dispMap.setCenter(dispMap.userLocation.coordinate, animated: true)
-    // ユーザの位置に追従させる
-    dispMap.userTrackingMode = MKUserTrackingMode.follow
-    
+
     // Text Fieldのdelegate通知先を設定
     inputText.delegate = self
     
@@ -164,7 +166,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
         
         // detabaseにデータ更新
         let setData: [String: Any] = ["title":userInput, "latitude":location.latitude, "longitude":location.longitude]
-        self.ref.child("users").child("01").child("memo").childByAutoId().child("data").setValue(setData)
+        self.ref.child("users").child(self.uid).child("memo").childByAutoId().child("data").setValue(setData)
         
       }
     }
@@ -237,7 +239,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
     
-    self.ref.child("users/01/memo").observeSingleEvent(of: .value, with: {(snapshot) in
+    self.ref.child("users/self.uid/memo").observeSingleEvent(of: .value, with: {(snapshot) in
       
       for mapSnapShot in snapshot.children{
         
@@ -261,7 +263,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   func startObservingDatabase() {
     //\(self.uid)文字列に変数をいれる時
-    self.ref.child("users/01/memo").observeSingleEvent(of: .value, with: {(snapshot) in
+    self.ref.child("users/self.uid/memo").observeSingleEvent(of: .value, with: {(snapshot) in
       
       for mapSnapShot in snapshot.children{
         
