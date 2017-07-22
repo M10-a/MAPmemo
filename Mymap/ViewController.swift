@@ -152,7 +152,12 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
       
       
       // 入力されたテキストを保持
-      if let userInput = dialog.textFields?.first?.text {
+      if var userInput = dialog.textFields?.first?.text {
+        print(userInput)
+        
+        if userInput == "" {
+          userInput = " "
+        }
         
         // MKPointAnnotationインスタンスを取得し、ピンを生成(10)
         let pin = MKPointAnnotation()
@@ -171,7 +176,11 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
         self.ref.child("users").child(self.uid).child("memo").childByAutoId().child("data").setValue(setData)
         
       } else {
-       let unuserInput = dialog
+        print("hoge")
+     //  let unuserInput = ""
+        
+        
+        
       }
     }
     
