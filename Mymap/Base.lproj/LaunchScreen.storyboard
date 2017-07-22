@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,15 +18,14 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mmdis" translatesAutoresizingMaskIntoConstraints="NO" id="QGj-Fp-9nz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mmdis" translatesAutoresizingMaskIntoConstraints="NO" id="QGj-Fp-9nz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mmdis2" translatesAutoresizingMaskIntoConstraints="NO" id="f8p-NS-q8f">
-                                <rect key="frame" x="144" y="185" width="87" height="157"/>
+                                <rect key="frame" x="164" y="210" width="87" height="157"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="157" id="QlB-5I-Yy6"/>
                                     <constraint firstAttribute="width" constant="87" id="tct-qd-Cqo"/>
@@ -36,9 +34,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="f8p-NS-q8f" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="128" id="89E-pW-a1A"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="f8p-NS-q8f" secondAttribute="trailing" constant="128" id="ggI-Eg-94H"/>
-                            <constraint firstItem="f8p-NS-q8f" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="165" id="uS8-iB-zj7"/>
+                            <constraint firstItem="f8p-NS-q8f" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-80" id="2ZO-1E-Ud0"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="QGj-Fp-9nz" secondAttribute="bottom" id="34g-HX-D6A"/>
+                            <constraint firstAttribute="trailing" secondItem="QGj-Fp-9nz" secondAttribute="trailing" id="G3r-Fx-ij3"/>
+                            <constraint firstItem="QGj-Fp-9nz" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="L3N-9B-Qkt"/>
+                            <constraint firstAttribute="trailing" secondItem="QGj-Fp-9nz" secondAttribute="trailing" id="alx-yp-UnH"/>
+                            <constraint firstItem="QGj-Fp-9nz" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="thn-Zu-TNP"/>
+                            <constraint firstItem="f8p-NS-q8f" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xAH-IX-wd3"/>
                         </constraints>
                     </view>
                 </viewController>

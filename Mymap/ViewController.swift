@@ -162,14 +162,16 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
         
         // ピンのタイトルを設定(12)
         pin.title = userInput
-        
+      
         // ピンを地図に置く(13)
         self.dispMap.addAnnotation(pin)
-        
+    
         // detabaseにデータ更新
         let setData: [String: Any] = ["title":userInput, "latitude":location.latitude, "longitude":location.longitude]
         self.ref.child("users").child(self.uid).child("memo").childByAutoId().child("data").setValue(setData)
         
+      } else {
+       let unuserInput = dialog
       }
     }
     
