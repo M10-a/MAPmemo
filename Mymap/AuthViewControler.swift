@@ -44,6 +44,9 @@ class AuthViewControler: UIViewController {
     let email = EmailFeild.text
     let password = PasswordFeild.text
     
+    print(email!)
+    print(password!)
+    
     // 入力された文字を非表示モードにする
     PasswordFeild.isSecureTextEntry = true
     
