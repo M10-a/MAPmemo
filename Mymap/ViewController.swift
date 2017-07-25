@@ -175,15 +175,8 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
         let setData: [String: Any] = ["title":userInput, "latitude":location.latitude, "longitude":location.longitude]
         self.ref.child("users").child(self.uid).child("memo").childByAutoId().child("data").setValue(setData)
         
-      } else {
-        print("hoge")
-     //  let unuserInput = ""
-        
-        
-        
-      }
+         }
     }
-    
     
     // ダイヤログをリセット
     dialog.addTextField(configurationHandler: nil)
@@ -281,6 +274,8 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   }
   
   func startObservingDatabase() {
+    //ピンを全て消す
+    self.dispMap.removeAnnotations(self.dispMap.annotations)
     //\(self.uid)文字列に変数をいれる時
     self.ref.child("users/\(self.uid)/memo").observeSingleEvent(of: .value, with: {(snapshot) in
       
