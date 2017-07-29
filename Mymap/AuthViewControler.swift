@@ -43,9 +43,7 @@ class AuthViewControler: UIViewController {
     // 入力されたデータを保持
     let email = EmailFeild.text
     let password = PasswordFeild.text
-    
-    print(email!)
-    print(password!)
+
     
     // 入力された文字を非表示モードにする
     PasswordFeild.isSecureTextEntry = true
@@ -126,6 +124,9 @@ class AuthViewControler: UIViewController {
     dismiss(animated: true, completion: nil)
   }
 
+  @IBAction func didTapCancel(_ sender: Any) {
+    signIn()
+  }
   
   
 }

@@ -42,7 +42,7 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     // ユーザ情報を取得
     let user = Auth.auth().currentUser
     if user == nil {
-      performSegue(withIdentifier: "goAuth", sender: nil)
+//      performSegue(withIdentifier: "goAuth", sender: nil)
     } else {
       uid = (user?.uid)!
     }
@@ -133,6 +133,16 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   
   // UITapGestureRecognizer(長押し)
   func mapTapped(_ sender: UITapGestureRecognizer){
+    
+    // ユーザ情報を取得
+    let user = Auth.auth().currentUser
+    if user == nil {
+      performSegue(withIdentifier: "goAuth", sender: nil)
+      //未ログインなので無処理
+      return
+    } else {
+      uid = (user?.uid)!
+    }
     
     // 画面上のタッチした座標を取得
     let tapPoint = sender.location(in: dispMap)
@@ -302,6 +312,12 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
   }
   
   @IBAction func didTapSignOut(_ sender: Any) {
+    
+    //サインアウト時にIDクリア
+    uid = ""
+    //ピンを全て消す
+    self.dispMap.removeAnnotations(self.dispMap.annotations)
+    
     do {
       try Auth.auth().signOut()
       performSegue(withIdentifier: "goAuth", sender: nil)
@@ -310,5 +326,14 @@ class ViewController: UIViewController ,UITextFieldDelegate , MKMapViewDelegate 
     }
   }
   
+  @IBAction func didTapMapSignin(_ sender: Any) {
+    do {
+      try Auth.auth().signOut()
+      performSegue(withIdentifier: "goAuth", sender: nil)
+    } catch let error {
+      assertionFailure("Error signing out: \(error)")
+    }
+
+  }
  
   }
